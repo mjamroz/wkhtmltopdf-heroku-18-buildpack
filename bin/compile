@@ -7,8 +7,8 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-BIN_PATH="/app/bin"
-LIB_PATH="/app/lib"
+BIN_PATH=$BUILD_DIR"/bin"
+LIB_PATH=$BUILD_DIR"/lib"
 TMP_PATH="$BUILD_DIR/tmp"
 mkdir -p $CACHE_DIR $BIN_PATH $LIB_PATH $TMP_PATH
 
@@ -40,6 +40,7 @@ echo "-----> Setting permissions"
 chmod +x $WKHTMLTOPDF_BINARIES/*
 
 echo "-----> Moving binaries to the right place"
+echo $BIN_PATH
 mv $WKHTMLTOPDF_BINARIES/* $BIN_PATH/
 
 echo "-----> Moving libs to the right place"
